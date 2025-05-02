@@ -32,7 +32,7 @@ public class movement : MonoBehaviour
         if (canDash)
         {
             canDash = false;
-            Vector3 direction = new Vector3(Input.GetAxis("Horizontal") * Time.fixedDeltaTime * speed * 9, Input.GetAxis("Vertical") * Time.fixedDeltaTime * speed * 9, 0);
+            Vector3 direction = new Vector3(Input.GetAxis("Horizontal") * Time.fixedDeltaTime * speed * 10, Input.GetAxis("Vertical") * Time.fixedDeltaTime * speed * 10, 0);
             rb.AddForce(direction, ForceMode2D.Impulse);
             StopAllCoroutines();
         }

@@ -8,18 +8,22 @@ public class shotBoss1 : MonoBehaviour
     private GameObject player;
     public GameObject bullet;
     private float count;
+    public bool canShout;
+    private Animator animator;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
+        animator.SetBool("isCatscene", true);
     }
 
     void Update()
     {
-        if (Vector2.Distance(transform.position, player.transform.position) < 20f)
+        if (canShout)
         {
             if (count > 1)
             {
-
+                animator.SetBool("isCatscene", false);
                 StartCoroutine(Shot());
                 
                 count = 0;
