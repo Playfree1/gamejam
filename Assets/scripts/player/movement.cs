@@ -19,7 +19,9 @@ public class movement : MonoBehaviour
         {
             if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0 || (Mathf.Abs(Input.GetAxis("Vertical")) > 0))
             {
-               rb.velocity = new Vector3(Input.GetAxis("Horizontal") * Time.fixedDeltaTime * speed, Input.GetAxis("Vertical") * Time.fixedDeltaTime * speed, 0);
+               Vector2 _direction = new Vector2(Input.GetAxis("Horizontal") * Time.deltaTime * speed, Input.GetAxis("Vertical") * Time.deltaTime * speed);
+                _direction.Normalize();
+                rb.velocity = _direction;
             }
             if(Mathf.Abs(Input.GetAxis("Fire3")) > 0)
             {
